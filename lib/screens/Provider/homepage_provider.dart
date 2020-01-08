@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_portal/screens/Provider/addjobs.dart';
 class HomePageProvider extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -141,13 +142,37 @@ class ListItemWidget extends State<HomePageProvider> {
         centerTitle: true,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(onPressed: () { },
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context) => MyApp()));
+        },
+
         tooltip: 'Increment',
         child: Icon(Icons.add),
         elevation: 10.0,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 20,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: new Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(icon: Icon(Icons.home),
+              onPressed: () {},),
+            IconButton(icon: Icon(Icons.filter_frames),
+              onPressed: () {},),
+            IconButton(icon: Icon(Icons.person),
+              onPressed: () {},),
+            IconButton(icon: Icon(Icons.settings),
+              onPressed: () {
+              showMenu();
+              },),
+          ],
+        ),
+      ),
+      /*bottomNavigationBar: BottomNavigationBar(
+        elevation: 10,
         fixedColor: Colors.cyan,
         type: BottomNavigationBarType.fixed,// this will be set when a new tab is tapped
         items: [
@@ -179,9 +204,8 @@ class ListItemWidget extends State<HomePageProvider> {
           ),
 
         ],
-        //notchedShape: CircularNotchedRectangle(),
       ),
-
+*/
       body: Container(
         child: ListView.builder(
 
