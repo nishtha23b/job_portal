@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_portal/screens/Provider/addjobs.dart';
+import 'package:job_portal/screens/Provider/contactus.dart';
+import 'package:job_portal/screens/Provider/profile.dart';
 class HomePageProvider extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -95,14 +97,16 @@ class ListItemWidget extends State<HomePageProvider> {
                                   ),
                                   ListTile(
                                     title: Text(
-                                      "About Us",
+                                      "Contact Us",
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     leading: Icon(
                                       Icons.info_outline,
                                       color: Colors.white,
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) =>ContactUs ()));
+                                    },
                                   ),
                                   ListTile(
                                     title: Text(
@@ -163,7 +167,9 @@ class ListItemWidget extends State<HomePageProvider> {
             IconButton(icon: Icon(Icons.filter_frames),
               onPressed: () {},),
             IconButton(icon: Icon(Icons.person),
-              onPressed: () {},),
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => Profile()));
+              },),
             IconButton(icon: Icon(Icons.settings),
               onPressed: () {
               showMenu();
