@@ -3,6 +3,7 @@ import 'package:job_portal/screens/Comman/privacypolicy.dart';
 import 'package:job_portal/screens/Comman/t&c.dart';
 import 'package:job_portal/screens/Provider/addjobs.dart';
 import 'package:job_portal/screens/Comman/contactus.dart';
+import 'package:job_portal/screens/Provider/help.dart';
 import 'package:job_portal/screens/Provider/profile.dart';
 class HomePageProvider extends StatefulWidget {
   @override
@@ -73,7 +74,10 @@ class ListItemWidget extends State<HomePageProvider> {
                                       Icons.help_outline,
                                       color: Colors.white,
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) =>JPHelp()));
+
+                                    },
                                   ),
                                   ListTile(
                                     title: Text(
@@ -153,8 +157,8 @@ class ListItemWidget extends State<HomePageProvider> {
         centerTitle: true,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.cyan[600],
         onPressed: () {
           Navigator.push(context,MaterialPageRoute(builder: (context) => MyApp()));
         },

@@ -102,9 +102,9 @@ TextEditingController password = new TextEditingController();
               margin: EdgeInsets.all(10.0),
               child:TextFormField(
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.mobile_screen_share),
-                  hintText: '9713222232',
-                  labelText: 'Mobile',
+                  icon: Icon(Icons.wc),
+                  hintText: 'male',
+                  labelText: 'Gender',
                 ),
                 minLines: 1,
                 validator: (value) {
@@ -131,69 +131,69 @@ TextEditingController password = new TextEditingController();
               margin: EdgeInsets.all(10.0),
               child:TextFormField(
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.email),
-                  hintText: 'john@gmail.com',
-                  labelText: 'Email',
+                  icon: Icon(Icons.location_on),
+                  hintText: '19,Vishnupuri',
+                  labelText: 'Address',
                 ),
                 minLines: 1,
                 validator: validateEmail,
               ),
             ),  new Container(
               margin: EdgeInsets.all(10.0),
-              child:TextFormField(
+              child:TextField(
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.email),
-                  hintText: 'john@gmail.com',
-                  labelText: 'Email',
+                  icon: Icon(Icons.phone_android),
+                  hintText: '9977238308',
+                  labelText: 'Mobile No',
                 ),
                 minLines: 1,
-                validator: validateEmail,
               ),
             ),
 
             new Container(
               margin: EdgeInsets.all(10.0),
 
-              child:TextFormField(
+              child:TextField(
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.lock),
-                  hintText: 'password',
-                  labelText: 'password',
+                  icon: Icon(Icons.business),
+                  hintText: 'eg- IT',
+                  labelText: 'Current Industry',
                 ),
-                controller: password,
-                onSaved: (String value){
 
-                },
-                obscureText: true,
                 minLines: 1,
-                validator: (value) {
-                  if (value.length <6) {
-                    return 'minimum 6 letter';
-                  }
-                  return null;
-                },
+
               ),
             ),
 
             new Container(
               margin: EdgeInsets.all(10.0),
 
-              child:TextFormField(
+              child:TextField(
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.lock),
-                  hintText: 'password',
-                  labelText: 'password',
+                  icon: Icon(Icons.school),
+                  hintText: 'eg- B.Tech',
+                  labelText: 'Qualification',
                 ),
-                obscureText: true,
+
                 minLines: 1,
-                validator: (value) {
-                  if (value != password.text.toString()) {
-                    return 'Password not matched';
-                  }
-                  return null;
-                },
+
               ),
             ),
+              new Container(
+                margin: EdgeInsets.all(10.0),
+
+                child:TextField(
+                  decoration: const InputDecoration(
+                    icon: Icon(Icons.monetization_on),
+                    hintText: 'eg- 5 lakh',
+                    labelText: 'Annual Salary',
+                  ),
+
+                  minLines: 1,
+
+                ),
+              ),
+
               new Container(
                 child:new Padding(
                   padding:EdgeInsets.all(5.0),

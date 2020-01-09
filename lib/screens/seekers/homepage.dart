@@ -72,7 +72,7 @@ class HomePageState extends State<HomePage> {
 
     return new Scaffold(
       appBar: new AppBar(
-        backgroundColor: Colors.cyan[800],
+        backgroundColor: Colors.cyan[600],
         // here we display the title corresponding to the fragment
         // you can instead choose to have a static title
         title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
