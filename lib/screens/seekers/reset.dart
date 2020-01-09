@@ -19,7 +19,6 @@ class ResetState extends State<Reset> {
       title: 'Reset Password',
       debugShowCheckedModeBanner:false,
       home: Scaffold(
-
         appBar: AppBar(
           title: Text('Reset Password'),
           backgroundColor: Colors.cyan[800],

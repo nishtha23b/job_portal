@@ -3,8 +3,11 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:job_portal/screens/Constantss.dart';
+import 'package:job_portal/screens/Provider/homepage_provider.dart';
 //import 'package:job_portal/screens/login.dart';
 import 'package:job_portal/screens/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:splashscreen/splashscreen.dart';
 /*
 void main(){
@@ -56,13 +59,29 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen> {
-   @override
+
+  String loginStatus="FALSE";
+
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 2),()=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (BuildContext context) => OnBoarding())));
+    _incrementCounter();
+
+    }
+  _incrementCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      loginStatus = prefs.getString(Constants.LOGIN_STATUS);
+    });
+    if (loginStatus=="TRUE"){
+      Timer(Duration(seconds: 2),()=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (BuildContext context) => HomePageProvider())));
+    }else{
+      Timer(Duration(seconds: 2),()=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (BuildContext context) => OnBoarding())));
+    }
   }
-  Widget build(BuildContext context) {
+    @override
+    Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -105,7 +124,7 @@ class SplashScreenState extends State<SplashScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    CircularProgressIndicator(),
+                    //CircularProgressIndicator(),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
                     ),

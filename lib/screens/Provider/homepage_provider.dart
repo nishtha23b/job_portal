@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_portal/screens/Comman/privacypolicy.dart';
 import 'package:job_portal/screens/Comman/t&c.dart';
 import 'package:job_portal/screens/Provider/addjobs.dart';
 import 'package:job_portal/screens/Comman/contactus.dart';
@@ -65,7 +66,7 @@ class ListItemWidget extends State<HomePageProvider> {
 
                                   ListTile(
                                     title: Text(
-                                      "Support",
+                                      "Help",
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     leading: Icon(
@@ -96,7 +97,10 @@ class ListItemWidget extends State<HomePageProvider> {
                                       Icons.lock_outline,
                                       color: Colors.white,
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) =>PrivacyPolicy ()));
+
+                                    },
                                   ),
                                   ListTile(
                                     title: Text(

@@ -125,10 +125,7 @@ class MoreState extends State<More> {
                           padding: const EdgeInsets.fromLTRB(10.0, 10.0, 255.0, 0.0),
                           child: Container(
 
-                            child: Text("Cancel",
-                            style: TextStyle(
-                              fontSize: 10.0,
-                            ),),
+                            child: Text("Cancel"),
 
 
                           ),
@@ -138,6 +135,7 @@ class MoreState extends State<More> {
                           icon:Icon(Icons.cancel),
                           padding: EdgeInsets.fromLTRB(0.0, 10.0, 10.0, 0.0),
                           onPressed:(){
+                            Navigator.pop(context,false);
                           }
                       ),//IconButton
                     ],
