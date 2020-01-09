@@ -3,6 +3,9 @@ import 'package:job_portal/screens/seekers/login.dart';
 /*import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';*/
+enum Gender { male,female,other }
+Gender _gender = Gender.male;
+
 
 class Registration extends StatefulWidget {
   @override
@@ -99,21 +102,28 @@ TextEditingController password = new TextEditingController();
             ),
 
             new Container(
-              margin: EdgeInsets.all(10.0),
-              child:TextFormField(
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.wc),
-                  hintText: 'male',
-                  labelText: 'Gender',
-                ),
-                minLines: 1,
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Please Enter Mobile number';
-                  }
-                  return null;
-                },
-              ),
+              child:Column(
+            children: <Widget>[
+            RadioListTile<Gender>(
+            title: const Text('Male'),
+        value: Gender.male,
+        groupValue: _gender,
+        onChanged: (Gender value) { setState(() { _gender = value; }); },
+      ),
+                   RadioListTile<Gender>(
+        title: const Text('Female'),
+        value:  Gender.female,
+        groupValue: _gender,
+        onChanged: (Gender value) { setState(() { _gender = value; }); },
+      ),
+      RadioListTile<Gender>(
+        title: const Text('Others'),
+        value:  Gender.other,
+        groupValue: _gender,
+        onChanged: (Gender value) { setState(() { _gender = value; }); },
+      ),
+      ],
+    )
             ),
 
             new Container(
