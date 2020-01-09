@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
+          backgroundColor: Colors.cyan[600],
           title: Text("Add a Job"),
           centerTitle: true,
           leading: IconButton(icon:Icon(Icons.arrow_back),
@@ -37,7 +38,7 @@ class MyCustomForm extends StatefulWidget {
 // This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
   final TextEditingController _controller = new TextEditingController();
-  Future _chooseDate(BuildContext context, String initialDateString) async {
+  Future chooseDate(BuildContext context, String initialDateString) async {
     var now = new DateTime.now();
     var initialDate = convertToDate(initialDateString) ?? now;
     initialDate = (initialDate.year >= 1900 && initialDate.isBefore(now) ? initialDate : now);

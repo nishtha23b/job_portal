@@ -31,6 +31,7 @@ class MyProfileState extends State<MyProfile> {
       home: Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: true,
+            backgroundColor: Colors.cyan[600],
             title: Text("Profile"),
             centerTitle: true,
             leading: IconButton(icon:Icon(Icons.arrow_back),

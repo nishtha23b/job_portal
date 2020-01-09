@@ -1,5 +1,6 @@
 import 'package:job_portal/screens/Comman/contactus.dart';
 import 'package:job_portal/screens/Comman/t&c.dart';
+import 'package:job_portal/screens/seekers/help.dart';
 import 'package:job_portal/screens/seekers/reset.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,7 @@ class MoreState extends State<More> {
                         icon:Icon(Icons.help),
                         padding: EdgeInsets.fromLTRB(0.0, 10.0, 10.0, 0.0),
                         onPressed:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => JSHelp()));
 
                         }
                     ),
@@ -125,10 +127,7 @@ class MoreState extends State<More> {
                           padding: const EdgeInsets.fromLTRB(10.0, 10.0, 255.0, 0.0),
                           child: Container(
 
-                            child: Text("Cancel",
-                            style: TextStyle(
-                              fontSize: 10.0,
-                            ),),
+                            child: Text("Cancel"),
 
 
                           ),
@@ -138,6 +137,7 @@ class MoreState extends State<More> {
                           icon:Icon(Icons.cancel),
                           padding: EdgeInsets.fromLTRB(0.0, 10.0, 10.0, 0.0),
                           onPressed:(){
+                            Navigator.pop(context,false);
                           }
                       ),//IconButton
                     ],

@@ -102,9 +102,9 @@ class RegistrationProviderFormState extends State<RegistrationProvider> {
                 margin: EdgeInsets.all(10.0),
                 child:TextFormField(
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.mobile_screen_share),
-                    hintText: '9713222232',
-                    labelText: 'Mobile',
+                    icon: Icon(Icons.business),
+                    hintText: 'eg- Google',
+                    labelText: 'Company',
                   ),
                   minLines: 1,
                   validator: (value) {
