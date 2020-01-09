@@ -1,34 +1,5 @@
 import 'package:flutter/material.dart';
 bool _isEnabled = false;
-class Profile extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-          title: Text("Profile"),
-          centerTitle: true,
-          leading: IconButton(icon:Icon(Icons.arrow_back),
-            onPressed:() => Navigator.pop(context, false),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.mode_edit),
-              onPressed: () {
-                _isEnabled = ! _isEnabled;
-              },
-            ),
-                ]
-        ),
-        body: MyProfile(),
-            ),
-    );
-  }
-}
 
 // Create a Form widget.
 
@@ -43,13 +14,40 @@ class MyProfile extends StatefulWidget {
 // This class holds data related to the form.
 class MyProfileState extends State<MyProfile> {
 
+  void tapping(){
+    setState(() {
+      _isEnabled = ! _isEnabled;
+
+    });}
+
 
   @override
   Widget build(BuildContext context) {
 
 
     // Build a Form widget using the _formKey created above.
-    return Material(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+            automaticallyImplyLeading: true,
+            title: Text("Profile"),
+            centerTitle: true,
+            leading: IconButton(icon:Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context, false),
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.mode_edit),
+                onPressed: () {
+                  tapping();
+                },
+              ),
+            ]
+        ),
+        body:
+      /*),
+    );*/Material(
       child: SingleChildScrollView(
         child: Container(
           padding:EdgeInsets.all(25.0),
@@ -118,7 +116,9 @@ class MyProfileState extends State<MyProfile> {
               ]
           ),
         ),
-    ),
+      ),
+        )
+      )
     );
   }
 }

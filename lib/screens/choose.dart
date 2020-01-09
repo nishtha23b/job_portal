@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:job_portal/screens/seekers/login.dart';
 import 'package:job_portal/screens/Provider/login_provider.dart';
-
+import 'package:job_portal/screens/seekers/login.dart';
 
 
 class Choose extends StatefulWidget {
@@ -107,6 +107,7 @@ class ChoosePageState extends State<Choose> {
                           colors: <Color>[Colors.red, Colors.black],
                         ),
                         onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder:(BuildContext context) => LoginSeeker()));
 
                         }
                     ),

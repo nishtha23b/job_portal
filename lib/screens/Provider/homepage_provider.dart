@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:job_portal/screens/Comman/t&c.dart';
 import 'package:job_portal/screens/Provider/addjobs.dart';
-import 'package:job_portal/screens/Provider/contactus.dart';
+import 'package:job_portal/screens/Comman/contactus.dart';
 import 'package:job_portal/screens/Provider/profile.dart';
 class HomePageProvider extends StatefulWidget {
   @override
@@ -82,7 +83,9 @@ class ListItemWidget extends State<HomePageProvider> {
                                       Icons.copyright,
                                       color: Colors.white,
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) =>TermsAndConditions ()));
+                                    },
                                   ),
                                   ListTile(
                                     title: Text(
@@ -168,7 +171,7 @@ class ListItemWidget extends State<HomePageProvider> {
               onPressed: () {},),
             IconButton(icon: Icon(Icons.person),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Profile()));
+                Navigator.push(context,MaterialPageRoute(builder: (context) => MyProfile()));
               },),
             IconButton(icon: Icon(Icons.settings),
               onPressed: () {
@@ -177,41 +180,7 @@ class ListItemWidget extends State<HomePageProvider> {
           ],
         ),
       ),
-      /*bottomNavigationBar: BottomNavigationBar(
-        elevation: 10,
-        fixedColor: Colors.cyan,
-        type: BottomNavigationBarType.fixed,// this will be set when a new tab is tapped
-        items: [
-          BottomNavigationBarItem(
-            icon: IconButton(
-                icon:Icon(Icons.home),
-              onPressed:(){}
-            ),
-            title: new Text('Home'),
-          ),BottomNavigationBarItem(
-          icon: IconButton(
-          icon:Icon(Icons.person_add),
-              onPressed:(){ Navigator.push(context,MaterialPageRoute(builder: (context) => HomePageProvider()));}
-          ),
-            title: new Text('Selected Candidates'),
-          ),
-          BottomNavigationBarItem(
-            icon:IconButton(
-                icon:Icon(Icons.person),
-                onPressed:(){ Navigator.push(context,MaterialPageRoute(builder: (context) => HomePageProvider()));}
-                ),
-            title: new Text('Profile'),
-          ),BottomNavigationBarItem(
-            icon:IconButton(
-                icon:Icon(Icons.settings),
-                onPressed: showMenu,
-            ),
-            title: new Text('Settings'),
-          ),
 
-        ],
-      ),
-*/
       body: Container(
         child: ListView.builder(
 

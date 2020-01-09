@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:job_portal/screens/seekers/homepage.dart';
 import 'package:job_portal/screens/seekers/registration.dart';
 
 class LoginSeeker extends StatefulWidget {
@@ -18,12 +18,14 @@ class LoginSeekerFormState extends State<LoginSeeker> {
 
   void clickNavigation(){
     Navigator.push(context,MaterialPageRoute(builder: (context) => Registration()));
+  }void loginclick(){
+    Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
   }
   void submit(){
     if(_formKey.currentState.validate()){
       Scaffold.of(context)
           .showSnackBar(SnackBar(content: Text('Submit')));
-      /*Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage()));*/
+      Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()));
     }
     else{
       Scaffold.of(context)
@@ -124,7 +126,7 @@ class LoginSeekerFormState extends State<LoginSeeker> {
                     focusElevation: 100.0,
                     hoverElevation: 100.0,
                     color: Colors. cyan,
-                    onPressed: submit,
+                    onPressed: loginclick,
                     child: Text('Submit',style: new TextStyle(
                       fontSize: 17.0,
                       color: Colors.white,
