@@ -1,52 +1,26 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:job_portal/screens/Constantss.dart';
-import 'package:job_portal/screens/seekers/jobdetails.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
 
-      title: '',
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-
-
-        body: Center(child: SwipeList()));
-  }
-}
-
-class SwipeList extends StatefulWidget {
+class ViewApplicants extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return ListItemWidget();
+    return ViewApplicantsState();
   }
 }
-class ListItemWidget extends State<SwipeList> {
-  var isLoader =false;
-  String reply = "";
+
+class ViewApplicantsState extends State<ViewApplicants> {
   var result;
-  var id;
-  SharedPreferences prefs;
+  SharedPreferences prefs;var isLoader =false;
+  String reply = "";
+  String id;
 
-  _incrementCounter() async {
-    prefs = await SharedPreferences.getInstance();
-  }
-
-  Future<String> getData(String url ) async {
+  Future<String> getData(String url,jsonMap ) async {
     try {
       setState(() {
         isLoader=true;
@@ -57,18 +31,18 @@ class ListItemWidget extends State<SwipeList> {
       //  var isConnect = await ConnectionDetector.isConnected();
       // if (isConnect) {
       HttpClient httpClient = new HttpClient();
-      HttpClientRequest request = await httpClient.getUrl(Uri.parse(url));
+      HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));
       request.headers.set('content-type' , 'application/json');
-      // request.add(utf8.encode(json.encode(jsonMap)));
+      request.add(utf8.encode(json.encode(jsonMap)));
       HttpClientResponse response = await request.close();
       //you should check the response.statusCode
       reply = await response.transform(utf8.decoder).join();
       httpClient.close();
       Map data = json.decode(reply);
       result =  data['result'];
-
       if(result!=null){
-
+        print("$result");
+        print("$result.length");
         setState(() {
           isLoader=false;
         });
@@ -96,38 +70,33 @@ class ListItemWidget extends State<SwipeList> {
     }
   }
 
+
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    this.getData(Constants.viewJobs);
     _incrementCounter();
-  }
 
+  } _incrementCounter() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      id=prefs.getString(Constants.jobId);
+      print("$id");
+      Map map={"id": id} ;
+      this.getData(Constants.viewApplicants,map);
+    });}
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
-      body:Container(
-
-        decoration: BoxDecoration(
-          // Box decoration takes a gradient
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0.2, 0.4, 0.6, 0.8],
-            colors: [
-              // Colors are easy thanks to Flutter's Colors class.
-              Colors.grey[300],
-              Colors.grey[400],
-              Colors.grey,
-              Colors.grey[800],
-            ],
-          ),
-        ),
-
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 20,
+        backgroundColor: Colors.cyan[600],
+        title: Text("Home"),
+        centerTitle: true,
+      ),
+      body: Container(
         child:
         isLoader?Center(child: CircularProgressIndicator(),):ListView.builder(
 
@@ -143,36 +112,36 @@ class ListItemWidget extends State<SwipeList> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("${result[index]["Job Title"]}",style: TextStyle(
+                        Text("${result[index]["name"]}",style: TextStyle(
                           fontSize: 20,
                           color: Colors.cyan[600],
                         ),
                           textAlign: TextAlign.left,),
                         Padding(
                           padding: const EdgeInsets.only(top:8.0),
-                          child: Text("Place                  :${result[index]["Location"]}",style: TextStyle(
+                          child: Text("Email                          :${result[index]["email"]}",style: TextStyle(
                             fontSize: 15,
                             color: Colors.black,
                           ),
                             textAlign: TextAlign.left,
                           ),
                         ),
-                        Text("Category            :${result[index]["Category"]}",style: TextStyle(
+                        Text("Address                     :${result[index]["address"]}",style: TextStyle(
                           fontSize:15,
                           color: Colors.black,
                         ),
                           textAlign: TextAlign.left,),
-                        Text("Status                 :${result[index]["Status"]}",style: TextStyle(
+                        Text("Mobile No.                :${result[index]["mobile"]}",style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                         ),
                           textAlign: TextAlign.left,),
-                        Text("Skills Required  :${result[index]["Skills required"]}",style: TextStyle(
+                        Text("Current Industry       :${result[index]["current_industry"]}",style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                         ),
                           textAlign: TextAlign.left,),
-                        Text("Apply By             :${result[index]["Last date to apply"]}",style: TextStyle(
+                        Text("Qualification  :${result[index]["qualification"]}",style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                         ),
@@ -180,40 +149,12 @@ class ListItemWidget extends State<SwipeList> {
                         Divider( thickness: .9,
                             color: Colors.black
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom:5.0),
-                          child: Align(
-                              alignment: Alignment.bottomRight,
-                              child:
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
-                                child: FlatButton(
-                                  color: Colors.cyan,
-                                  textColor: Colors.white,
-                                  disabledColor: Colors.grey,
-                                  disabledTextColor: Colors.black,
-                                  splashColor: Colors.cyanAccent,
-                                  onPressed: () {
-                                    setState(() {
-                                      id= result[index]["_id"];
 
-                                    });
-                                    prefs.setString(Constants.jobId, id);
-                                    Navigator.push(context,new MaterialPageRoute(
-                                        builder: (BuildContext context) => JobDetails()));
-                                  },
-                                  child: Text(
-                                    "View Details",
-                                    style: TextStyle(fontSize: 10.0),
-                                  ),
-                                ),
-                              )
-                          ),
-                        )
                       ],
                     ),
                   ),
                 ),
+
               ),
             );
           },
@@ -221,4 +162,5 @@ class ListItemWidget extends State<SwipeList> {
       ),
     );
   }
+
 }

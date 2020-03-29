@@ -13,49 +13,49 @@ class MyApplications extends StatelessWidget {
         debugShowCheckedModeBanner:false,
         home: Scaffold(
 
-           body: SingleChildScrollView(
-             child: Column(children: <Widget>[
+            body: SingleChildScrollView(
+              child: Column(children: <Widget>[
 
 
-               IconButton(
-                 onPressed: (){
-                   setState(() {
-                     if(this.cusIcon.icon==Icons.search){
-                       this.cusIcon=Icon(Icons.cancel);
-                       this.cusSearchBar=TextField(
-                         textInputAction: TextInputAction.go,
-                         decoration: InputDecoration(
-                           border: InputBorder.none,
-                           hintText: "Search Jobs",
-                         ),
-                         style: TextStyle(
-                           color: Colors.white,
-                           fontSize: 16.0,
-                         ),
+                IconButton(
+                  onPressed: (){
+                    setState(() {
+                      if(this.cusIcon.icon==Icons.search){
+                        this.cusIcon=Icon(Icons.cancel);
+                        this.cusSearchBar=TextField(
+                          textInputAction: TextInputAction.go,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Search Jobs",
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                          ),
 
-                       );
-                     } else{
-                       this.cusIcon =Icon(Icons.search);
-                       this.cusSearchBar =Text("   ");
-                     }
-                   }
-                   );
-                 },
-                 icon: cusIcon,
-               ),
+                        );
+                      } else{
+                        this.cusIcon =Icon(Icons.search);
+                        this.cusSearchBar =Text("   ");
+                      }
+                    }
+                    );
+                  },
+                  icon: cusIcon,
+                ),
 
-               ],
-
-
+              ],
 
 
-    ),
-    )));
+
+
+              ),
+            )));
   }
 
   void setState(Null Function() param0) {}
 
-  }
+}
 
 
 

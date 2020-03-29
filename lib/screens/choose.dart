@@ -63,26 +63,26 @@ class ChoosePageState extends State<Choose> {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Container(
-        decoration: BoxDecoration(
-        gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        stops: [0.1, 0.4, 0.7, 0.9],
-        colors: [
-          Color(0xFFE0F7FA),
-          Color(0xFF80DEEA),
-          Color(0xFF26C6DA),
-          Color(0xFF0097A7),
-        ],
-        ),
-        ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.1, 0.4, 0.7, 0.9],
+              colors: [
+                Color(0xFFE0F7FA),
+                Color(0xFF80DEEA),
+                Color(0xFF26C6DA),
+                Color(0xFF0097A7),
+              ],
+            ),
+          ),
 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                //mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  /*Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            //mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              /*Container(
                     //alignment: Alignment.bottomCenter,
                     padding: EdgeInsets.fromLTRB(70, 60, 70, 20),
                      child: RaisedButton(
@@ -94,43 +94,43 @@ class ChoosePageState extends State<Choose> {
 
                      ),
                   ),*/
-                  Container(
-                    //alignment: Alignment.bottomCenter,
-                    padding: EdgeInsets.fromLTRB(70, 60, 70, 20),
-                    child:
-                    RaisedGradientButton(
-                        child: Text(
-                          'Tap To Get a Job',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        gradient: LinearGradient(
-                          colors: <Color>[Colors.red, Colors.black],
-                        ),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder:(BuildContext context) => LoginSeeker()));
-
-                        }
+              Container(
+                //alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.fromLTRB(70, 60, 70, 20),
+                child:
+                RaisedGradientButton(
+                    child: Text(
+                      'Tap To Get a Job',
+                      style: TextStyle(color: Colors.white),
                     ),
-                  ),
-                  Container(
-                    //alignment: Alignment.bottomCenter,
-                    padding: EdgeInsets.fromLTRB(70, 60, 70, 20),
-                    child:
-                    RaisedGradientButton(
-                        child: Text(
-                          'Tap To Provide A Job',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        gradient: LinearGradient(
-                          colors: <Color>[Colors.red, Colors.black],
-                        ),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder:(BuildContext context) => LoginProvider()));
-
-
-                        }
+                    gradient: LinearGradient(
+                      colors: <Color>[Colors.grey[350], Colors.grey[700]],
                     ),
-                   /* RaisedButton(
+                    onPressed: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(BuildContext context) => LoginSeeker()));
+
+                    }
+                ),
+              ),
+              Container(
+                //alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.fromLTRB(70, 60, 70, 20),
+                child:
+                RaisedGradientButton(
+                    child: Text(
+                      'Tap To Provide A Job',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    gradient: LinearGradient(
+                      colors: <Color>[Colors.grey[350], Colors.grey[700]],
+                    ),
+                    onPressed: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(BuildContext context) => LoginProvider()));
+
+
+                    }
+                ),
+                /* RaisedButton(
                         child: Text('Tap To Provide A Job '),
                       elevation: 30,
                       //padding: EdgeInsets.all(10),
@@ -138,8 +138,8 @@ class ChoosePageState extends State<Choose> {
                           Navigator.push(context, MaterialPageRoute(builder:(BuildContext context) => LoginProvider()));
                    }
                    ),*/
-                 ),
-            /*const SizedBox(height: 20),
+              ),
+              /*const SizedBox(height: 20),
 
                  RaisedButton(
                    onPressed: () {},
@@ -163,11 +163,11 @@ class ChoosePageState extends State<Choose> {
                      ),
                    ),
                  ),*/
-               ],
-            ),
+            ],
           ),
         ),
-      
+      ),
+
     );
   }
 

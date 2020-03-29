@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:job_portal/screens/login.dart';
 import 'package:job_portal/screens/styles.dart';
 import 'package:job_portal/screens/choose.dart';
-//import 'package:transformer_page_view/index_controller.dart';
-//import 'package:transformer_page_view/parallax.dart';
-//import 'package:transformer_page_view/transformer_page_view.dart';
-//import 'package:job_portal/utilities/app_colors.dart';
-//import 'package:job_portal/utilities/intro_widget.dart';
-
 
 
 class OnBoarding extends StatefulWidget {
@@ -76,7 +69,7 @@ class OnBoardingState extends State<OnBoarding> {
                   alignment: Alignment.centerRight,
                   child: FlatButton(
                     onPressed: (){ Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => Choose()));
+                        builder: (BuildContext context) => Choose()));
                     },
                     child: Text(
                       'Skip',
@@ -259,7 +252,7 @@ class OnBoardingState extends State<OnBoarding> {
         child: GestureDetector(
           onTap: ()  {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (BuildContext context) => Choose()));
+                builder: (BuildContext context) => Choose()));
           },
           child: Center(
             child: Padding(
